@@ -11,10 +11,17 @@
       <%= link_to 'Vacation Planner', root_url %>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><%=link_to "新規登録", signup_path %></li>
-        <li><a href="#">ログイン</a></li>
-      </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if logged_in? %>
+            <li><%= link_to 'マイページ', user_path(current_user) %></li>
+            <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+        </ul>
+          <% else %>
+        <ul>
+          <li><%=link_to "新規登録", signup_path %></li>
+          <li><%=link_to "ログイン", login_path %></li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </nav>

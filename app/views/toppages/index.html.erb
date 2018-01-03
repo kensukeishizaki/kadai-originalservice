@@ -1,2 +1,14 @@
-<h1>Toppages#index</h1>
+<% content_for :cover do %>
+  <div class="cover">
+    <div class="cover-inner">
+      <div class="cover-contents">
+        <h1>あなたのディズニーバケーションを組み立てよう！</h1>
+          <% unless logged_in? %>
+            <%= link_to 'Vacation Plannerを始める！', signup_path, class: 'btn btn-success btn-lg' %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
 
+<p>テスト</p>
