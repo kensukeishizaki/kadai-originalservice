@@ -2,7 +2,8 @@
   <div class="cover">
     <div class="cover-inner">
       <div class="cover-contents">
-        <h1>あなたのディズニーバケーションを組み立てよう！</h1>
+        <h2>あなたのディズニーバケーションを組み立てよう！</h2>
+        <h2><%= link_to 'アトラクション一覧', attractions_path %></h2>
           <% unless logged_in? %>
             <%= link_to 'Vacation Plannerを始める！', signup_path, class: 'btn btn-success btn-lg' %>
           <% end %>
@@ -11,4 +12,4 @@
   </div>
 <% end %>
 
-<p>テスト</p>
+

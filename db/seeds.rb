@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+User.create!(name: 'admin', email: 'admin@test.com', password: 'password', admin: true)
+
+10.times do |n|
+  User.create!(name: "user#{ n + 1 }", email: "user#{ n + 1 }@test.com", password: "password")
+end
+
+themepark_ids = [*1..4]
+
+10.times do |n|
+  Attraction.create!(name: "sample#{ n + 1 }", content: ("content " * 10), themepark_id: themepark_ids.sample)
+end
+  

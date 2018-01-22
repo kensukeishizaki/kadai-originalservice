@@ -1,0 +1,26 @@
+<%= form_for(review) do |f| %>
+  <%= f.hidden_field :attraction_id, value: attraction.id %>
+
+  <div class="form-group">
+    <%= f.label :comment, "レビュー" %>
+    <%= f.text_field :comment, class: "form-control", rows: 4 %>
+  </div>  
+  <div class="form-group">
+    <%= f.label :rate, "評価" %>
+    <div id="star"></div>
+  </div>
+  <div class="form-group">
+    <%= f.submit '投稿する！' %>
+  </div>
+  
+
+<script>
+$('#star').raty({
+  size     : 36,
+  starOff: '/assets/star-off.png',
+  starOn : '/assets/star-on.png',
+  scoreName: 'review[rate]',
+  score: <%= review.rate %>
+});
+</script>
+<% end %>

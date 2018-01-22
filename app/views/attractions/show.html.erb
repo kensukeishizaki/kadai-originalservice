@@ -1,0 +1,36 @@
+<div class="container">
+    <%= render "attractions/attractions_head" %>
+
+    <div class="wish_users">
+      <h3>「行きたい」ユーザー</h3>
+        <table class="table table-striped">    
+          <% @wish_users.each do |user| %>
+            <tr>
+              <th><%= link_to user.name, user_path(user) %></th>
+            </tr>  
+          <% end %>
+        </table>
+    </div>
+  <% if logged_in? %>
+    <%= render 'reviews/new', review: @review, attraction: @attraction %>
+  <% end %>
+
+  <div class="review_users">
+    <h3>レビュー一覧</h3>
+<%= render "reviews/reviews_list" %>
+  </div>
+
+
+
+    <% if admin? %>
+      <%= link_to 'このアトラクションを編集する', edit_attraction_path(@attraction) %>
+      <%= link_to 'このアトラクションを削除する', @attraction, method: :delete, data: { confirm: '本当に削除してよろしいですか？'} %>
+    <% end %>
+
+
+    <%= link_to "アトラクション一覧に戻る", attractions_path %>
+</div>
+
+
+
+
