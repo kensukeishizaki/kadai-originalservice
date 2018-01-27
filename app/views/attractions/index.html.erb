@@ -1,22 +1,24 @@
-<body>
-  <h1 class="title">アトラクション一覧</h1>
-  
-  <div class="attraction_index">
-    <% @attractions.each do |attraction| %>
-      <h3><%= link_to attraction.name, attraction %></h3>
-      <p><div id="star_average"></div></p>
-      <p><%= attraction.content %></p>
-      <p><%= attraction.themepark_id %></p>
-      <script>
-        $('#star_average').raty({
-          size     : 36,
-          starOff: '/assets/star-off.png',
-          starOn : '/assets/star-on.png',
-          starHalf: '/assets/star-half.png',
-          scoreName: 'review[rate]',
-          readOnly: true, score: <%= attraction.reviews.average(:rate) %>
-        });
-        </script>      
-    <% end %>
-  </div>
-</body>
+<div class="cover">
+  <body>
+    <h1 class="title">アトラクション一覧</h1>
+    
+    <div class="attraction_index">
+      <% @attractions.each do |attraction| %>
+        <h3><%= link_to attraction.name, attraction %>　<span id="star_average_<%= attraction.id %>"></span></h3>
+        <p><%= themeparks[attraction.themepark_id] %></p>
+        <p><%= attraction.content %></p>
+        <script>
+          $('#star_average_<%= attraction.id %>').raty({
+            size     : 36,
+            starOff: '/assets/star-off.png',
+            starOn : '/assets/star-on.png',
+            starHalf: '/assets/star-half.png',
+            scoreName: 'review[rate]',
+            readOnly: true, score: <%= attraction.reviews.average(:rate) || 0 %>
+          });
+          </script>      
+      <% end %>
+    </div>
+    <%= paginate @attractions %>
+  </body>
+</div>  

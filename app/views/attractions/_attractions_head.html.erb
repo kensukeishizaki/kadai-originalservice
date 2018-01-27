@@ -1,6 +1,6 @@
     <h1><%= @attraction.name %></h1>
     <p><div id="star_average"></div>
-      <%= @attraction.reviews.average(:rate).round(1) %></p>
+      <%= @attraction.try(:reviews).try(:average, :rate).try(:round, 1) || 0 %></p>
     <p><%= @attraction.content %></p>
     <p><%= themeparks[@attraction.themepark_id] %></p>
     <%= render "attractions/button", attraction: @attraction %>
@@ -15,6 +15,6 @@ $('#star_average').raty({
   starOn : '/assets/star-on.png',
   starHalf: '/assets/star-half.png',
   scoreName: 'review[rate]',
-  readOnly: true, score: <%= @attraction.reviews.average(:rate).round(1) %>,
+  readOnly: true, score: <%= @attraction.try(:reviews).try(:average, :rate).try(:round, 1) || 0 %>,
 });
 </script>

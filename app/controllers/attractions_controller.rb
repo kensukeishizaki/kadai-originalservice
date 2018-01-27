@@ -2,7 +2,7 @@ class AttractionsController < ApplicationController
   before_action :correct_admin_user, only: [:new, :create, :edit, :update, :destroy]
   
   def index
-    @attractions = Attraction.order("themepark_id")
+    @attractions = Attraction.order("themepark_id").page(params[:page]).per(10)
   end
 
   def show

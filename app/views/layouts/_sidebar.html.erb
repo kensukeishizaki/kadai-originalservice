@@ -1,0 +1,49 @@
+<div class="sidebar">
+  <ul style="list-style: none; ">
+    <% if admin? %>
+      <li>
+        <button type="button" class="btn btn-lg btn-default">
+          <span class="glyphicon glyphicon-plane">
+            <%= link_to 'アトラクション追加', new_attraction_path %>
+          </span>
+        </button>
+      </li>
+  <% end %>
+  <% if logged_in? %>
+    <li>
+      <button type="button" class="btn btn-lg btn-default ">
+        <span class="glyphicon glyphicon-plane">
+          <%= link_to 'マイページ', user_path(current_user) %>
+        </span>
+      </button>
+    </li>
+    <li>　</li>
+    <li>
+      <button type="button" class="btn btn-lg btn-default">
+        <span class="glyphicon glyphicon-log-out">
+          <%= link_to 'ログアウト', logout_path, method: :delete %></li>
+        </span>
+      </button>
+    </li>  
+  <% else %>
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <li>
+      <button type="button" class="btn btn-lg btn-default">
+        <span class="glyphicon glyphicon-check">
+          <%= link_to '新規登録', signup_path %>
+        </span>
+      </button>
+    </li>
+    <li>　</li>
+    <li>
+      <button type="button" class="btn btn-lg btn-default">
+        <span class="glyphicon glyphicon-log-in">
+          <%=link_to "ログイン", login_path %></li>
+        </span>  
+      </button>
+    </li>
+    <% end %>
+    <h3><%= link_to "アトラクション一覧", attractions_path %></h3>
+  </ul>
+</div>
+</div>  

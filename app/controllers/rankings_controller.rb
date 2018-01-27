@@ -1,6 +1,6 @@
 class RankingsController < ApplicationController
-  def review
-    @ranking_averages = Review.rate.ranking
-    @attractions = Attraction.find(@ranking_averages.keys)
+  def wish
+    @ranking_counts = Wish.ranking
+    @attractions = Attraction.find(@ranking_counts.keys)
   end
 end

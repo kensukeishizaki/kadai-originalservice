@@ -1,12 +1,12 @@
     <% @review_users.each do |user| %>
       <div class="review_list">
-          <p><%= link_to user.name, user_path(user)%>
-          <div id="star_user"></div>
-          <%= user.review(@attraction).rate %></p>
+        <div class="user_review">
+          <p><%= link_to user.name, user_path(user)%>　　<span id="star_user"></span</p>
           <p><%= user.review(@attraction).comment %></p>
           <% if current_user == user %>
             <%= link_to "レビューの削除", @review, method: :delete, data: {comfirm: "本当に削除しますか？" }, class: 'btn btn-danger btn-xs' %>
           <% end %>
+        </div>  
       </div>
 
     

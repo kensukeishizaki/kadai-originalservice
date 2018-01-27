@@ -6,10 +6,26 @@
   margin-bottom: 20px;
   margin-left: 20px;
   width: 70%;
-  height: 300px;
+  height: 1200px;
+}
+/* sidebar */
+.sidebar {
+  width: 30%;
+  float: right;
+  background-color: #ddffdd;
+  height: 1200px;
 }
 
-.wish_users .panel-body {
-  height: 150px;
-  width: 300px;
+/* attraction_show_wish_users */
+.wish_users {
+  width: 45%;
+  float: left;
+  margin-right: 10%;
 }
+
+/* attraction_show_reviews */
+.reviews {
+  width: 45%;
+  float: right;
+}
+

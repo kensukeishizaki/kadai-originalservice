@@ -20,7 +20,7 @@ $('#star').raty({
   starOff: '/assets/star-off.png',
   starOn : '/assets/star-on.png',
   scoreName: 'review[rate]',
-  score: <%= review.rate %>
+  score: <%= review.rate || 0 %>
 });
 </script>
 <% end %>

@@ -1,31 +1,37 @@
-<div class="user-profile">
-  <div class="icon text-center">
-    <img src="<%= gravatar_url(@user, size: 100) %>" alt="" class="img-circle">
+<body>
+<div class="cover">
+  <div class="user-profile">
+    <div class="icon text-center">
+      <img src="<%= gravatar_url(@user, size: 100) %>" alt="" class="img-circle">
+    </div>
+    <div class="name text-center">
+      <h1><%= @user.name %></h1>
+    </div>
   </div>
-  <div class="name text-center">
-    <h1><%= @user.name %></h1>
+  <h2><%= @user.name %>の「行きたい」リスト</h2>
+  <div class="attraction-index">
+    <% @attractions.each do |attraction| %>
+      <p><%= link_to attraction.name, attraction %></p>
+      <p><div id="star_average"></div></p>
+        <p><%= attraction.content %></p>
+ 
+
+  
+  <script>
+  $('#star_average').raty({
+    size     : 36,
+    starOff: '/assets/star-off.png',
+    starOn : '/assets/star-on.png',
+    starHalf: '/assets/star-half.png',
+    scoreName: 'review[rate]',
+    readOnly: true, score: <%= attraction.reviews.average(:rate) || 0 %>
+  });
+  </script>
+  
+    <% end %>
+  </div>
+  <div>
+    <%= link_to "アトラクション一覧へ", attractions_path %> 
   </div>
 </div>
-<h2><%= @user.name %>の「行きたい」リスト</h2>
-<div class="attraction-index">
-  <% @attractions.each do |attraction| %>
-    <p><%= link_to attraction.name, attraction %></p>
-    <p><div id="star_average"></div>
-      <p><%= attraction.content %></p>
-
-<script>
-$('#star_average').raty({
-  size     : 36,
-  starOff: '/assets/star-off.png',
-  starOn : '/assets/star-on.png',
-  starHalf: '/assets/star-half.png',
-  scoreName: 'review[rate]',
-  score: <%= @attraction.reviews.average(:rate).round(1) %>
-});
-</script>
-
-  <% end %>
-</div>
-<div>
-  <%= link_to "アトラクション一覧へ", attractions_path %> 
-</div>
+</body>

@@ -9,54 +9,7 @@
         <span class="icon-bar"></span>
       </button>
           <h2><%= link_to 'Vacation Planner', root_url %><h2>
-      </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <% if admin? %>
-            <li>
-              <button type="button" class="btn btn-default">
-                <span class="glyphicon glyphicon-plane">
-                  <%= link_to 'アトラクション追加', new_attraction_path %>
-                </span>
-              </button>
-            </li>
-          <% end %>
-          <% if logged_in? %>
-            <li>
-              <button type="button" class="btn btn-default">
-                <span class="glyphicon glyphicon-plane">
-                  <%= link_to 'マイページ', user_path(current_user) %>
-                </span>
-              </button>
-            </li>
-            <li>
-              <button type="button" class="btn btn-default">
-                <span class="glyphicon glyphicon-log-out">
-                  <%= link_to 'ログアウト', logout_path, method: :delete %></li>
-                </span>
-              </button>
-            </li>  
-        </ul>
-          <% else %>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-              <button type="button" class="btn btn-default">
-                <span class="glyphicon glyphicon-check">
-                  <%= link_to '新規登録', signup_path %>
-                </span>
-              </button>
-            </li>
-            <li>
-              <button type="button" class="btn btn-default">
-                <span class="glyphicon glyphicon-log-in">
-                  <%=link_to "ログイン", login_path %></li>
-                </span>  
-              </button>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+      </div>      
     </div>
   </nav>
 </header>

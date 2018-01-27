@@ -1,17 +1,18 @@
-
-
-<%= form_for(@attraction) do |f| %>
-
-  <%= f.select :themepark_id, themeparks.invert %>
+<div class="cover">
   
-  <div class="form-group">
-    <%= f.label :name, 'アトラクション名' %>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :content, '説明' %>
-    <%= f.text_field :content, class: 'form-control' %>
-  </div>
+  <%= form_for(@attraction) do |f| %>
   
-  <%= f.submit '投稿', class: 'btn btn-primary' %>
-<% end %>
+    <%= f.select :themepark_id, themeparks.invert %>
+    
+    <div class="form-group">
+      <%= f.label :name, 'アトラクション名' %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :content, '説明' %>
+      <%= f.text_field :content, class: 'form-control' %>
+    </div>
+    
+    <%= f.submit '投稿', class: 'btn btn-primary' %>
+  <% end %>
+</div>

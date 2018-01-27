@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 20180114075715) do
     t.integer  "user_id"
     t.integer  "attraction_id"
     t.text     "comment",       limit: 65535
-    t.integer  "rate"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.integer  "rate",                        default: 0
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.index ["attraction_id"], name: "index_reviews_on_attraction_id", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
