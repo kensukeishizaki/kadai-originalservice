@@ -1,2 +1,21 @@
-<h1>Rankings#review</h1>
-<p>Find me in app/views/rankings/review.html.erb</p>
+<div class="cover">
+  <h1>人気アトラクションランキング</h1>
+    <% @attractions.each_with_index do |attraction, index| %>
+        <h3><%= index+1 %>位　<%= link_to attraction.name, attraction %>　<span id="star_average_<%= attraction.id %>"></span></h3>
+        <p><%= attraction.content %></p>
+        <br>
+
+<script>
+$('#star_average_<%= attraction.id %>').raty({
+  size     : 36,
+  starOff: '/assets/star-off.png',
+  starOn : '/assets/star-on.png',
+  starHalf: '/assets/star-half.png',
+  scoreName: 'review[rate]',
+  readOnly: true, score: <%= attraction.reviews.average(:rate) || 0 %>
+          });
+</script>    
+
+
+    <% end %>
+</div>

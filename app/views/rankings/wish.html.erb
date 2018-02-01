@@ -1,0 +1,7 @@
+<div class="cover">
+  <h1>「行きたい」ランキング</h1>
+    <% @attractions.each do |attraction| %>
+        <p><%= link_to attraction.name, attraction %></p>
+        <p class="text-center"><%= @ranking_counts[attraction.id] %> 行きたい！</p>
+    <% end %>
+</div>

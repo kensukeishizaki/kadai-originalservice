@@ -7,7 +7,7 @@ class Review < ApplicationRecord
   validates :attraction_id, presence: true
 
   def self.ranking
-    self.group(:attraction_id).order('count_attraction_id DESC').limit(10).count(:attraction_id)
+    self.group(:attraction_id).order('average_rate DESC').limit(10).average(:rate)
   end  
 
 end

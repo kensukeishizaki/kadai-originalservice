@@ -7,7 +7,9 @@ class AttractionsController < ApplicationController
 
   def show
     @attraction = Attraction.find(params[:id])
-    @review = current_user.reviews.find_by(attraction_id: @attraction.id) || Review.new
+    if logged_in?
+      @review = current_user.reviews.find_by(attraction_id: @attraction.id) || Review.new
+    end
     @wish_users = @attraction.wish_users
     @review_users = @attraction.review_users
   end

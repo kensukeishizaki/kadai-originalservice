@@ -13,11 +13,12 @@
   </div>
 
   <div class="reviews">
-    <% if logged_in? %>
-      <%= render 'reviews/new', review: @review, attraction: @attraction %>
-    <% end %>
+
     <h3>レビュー一覧</h3>
       <%= render "reviews/reviews_list" %>
+      <% if logged_in? %>
+        <%= render 'reviews/new', review: @review, attraction: @attraction %>
+      <% end %>
   </div>
 
 
@@ -26,9 +27,7 @@
       <%= link_to 'このアトラクションを編集する', edit_attraction_path(@attraction) %>
       <%= link_to 'このアトラクションを削除する', @attraction, method: :delete, data: { confirm: '本当に削除してよろしいですか？'} %>
     <% end %>
-  </div>
-
-    <%= link_to "アトラクション一覧に戻る", attractions_path %>
+  </div>  
 </div>
 
 

@@ -4,12 +4,12 @@
       <div class="cover-contents">
         <h2>あなたのディズニーバケーションを組み立てよう！</h2>
         <h2><%= link_to 'アトラクション一覧', attractions_path %></h2>
-          <% unless logged_in? %>
-            <%= link_to 'Vacation Plannerを始める！', signup_path, class: 'btn btn-success btn-lg' %>
-          <% end %>
       </div>
     </div>
-  </div>
+    <h2><%= link_to "人気アトラクションランキング", rankings_review_path %></h2>
+      <% unless logged_in? %>
+        <%= link_to 'Vacation Plannerを始める！', signup_path, class: 'btn btn-success btn-lg' %>
+        <%= link_to '登録済みの方はこちら', login_path, class: 'btn btn-success btn-lg' %>
+      <% end %>
+    </div>
 <% end %>
-
-

@@ -3,7 +3,7 @@
       <%= @attraction.try(:reviews).try(:average, :rate).try(:round, 1) || 0 %></p>
     <p><%= @attraction.content %></p>
     <p><%= themeparks[@attraction.themepark_id] %></p>
-    <%= render "attractions/button", attraction: @attraction %>
+    <%= render "attractions/button", attraction: @attraction if logged_in? %>
     
     
 <script>
