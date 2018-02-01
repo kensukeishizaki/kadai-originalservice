@@ -7,11 +7,10 @@
       <h1><%= @user.name %></h1>
     </div>
   </div>
-  <h2><%= @user.name %>の「行きたい」リスト</h2>
+  <h2><%= @user.name %>さんの「行きたい」リスト</h2>
   <div class="attraction-index">
     <% @attractions.each do |attraction| %>
-      <p><%= link_to attraction.name, attraction %></p>
-      <p><div id="star_average_<%= attraction.id %>"></div></p>
+      <h3><%= link_to attraction.name, attraction %>　<span id="star_average_<%= attraction.id %>"></span></h3>
         <p><%= attraction.content %></p>
  
 

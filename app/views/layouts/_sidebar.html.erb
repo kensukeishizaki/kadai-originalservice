@@ -12,7 +12,7 @@
   <% if logged_in? %>
     <li>
       <button type="button" class="btn btn-lg btn-default ">
-        <span class="glyphicon glyphicon-plane">
+        <span class="glyphicon glyphicon-briefcase">
           <%= link_to 'マイページ', user_path(current_user) %>
         </span>
       </button>
@@ -43,7 +43,16 @@
       </button>
     </li>
     <% end %>
-    <h3><%= link_to "アトラクション一覧", attractions_path %></h3>
+    <li>
+      　
+    </li>
+    <li>
+      <button type="button" class="btn btn-lg btn-default ">
+        <span class="glyphicon glyphicon-plane">
+          <%= link_to 'アトラクション一覧', attractions_path %>
+        </span>
+      </button>
+    </li>
   </ul>
 </div>
 </div>  
